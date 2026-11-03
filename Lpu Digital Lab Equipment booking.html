@@ -1,0 +1,2897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Lovely Professional University – Digital Lab Booking & Equipment Portal</title>
+  
+  <!-- LPU Labs Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>">
+  
+  <!-- Modern Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+/* ==========================================================================
+   LOVELY PROFESSIONAL UNIVERSITY (LPU) - DIGITAL LAB EQUIPMENT BOOKING
+   Design System, Glassmorphic Theme, Animations & Responsive Layout
+   ========================================================================== */
+
+:root {
+  /* Brand Colors - Lovely Professional University Palette */
+  --lpu-orange: #f26522;
+  --lpu-orange-hover: #e05312;
+  --lpu-orange-light: #fff7ed;
+  --lpu-orange-subtle: rgba(242, 101, 34, 0.12);
+  --lpu-orange-glow: rgba(242, 101, 34, 0.35);
+
+  --lpu-navy: #0b1329;
+  --lpu-navy-surface: #131c36;
+  --lpu-navy-card: rgba(19, 28, 54, 0.78);
+  --lpu-blue: #1e40af;
+  --lpu-blue-light: #eff6ff;
+
+  /* Neutrals & Surfaces (Light Mode default) */
+  --bg-page: #f8fafc;
+  --surface: #ffffff;
+  --surface-card: rgba(255, 255, 255, 0.88);
+  --surface-card-hover: rgba(255, 255, 255, 0.98);
+  --surface-secondary: #f1f5f9;
+  --surface-elevated: #ffffff;
+
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-subtle: #94a3b8;
+  --text-inverse: #ffffff;
+
+  --border-light: rgba(226, 232, 240, 0.85);
+  --border-card: rgba(226, 232, 240, 0.9);
+  --border-focus: #f26522;
+
+  /* Feedback Colors */
+  --ok: #10b981;
+  --ok-bg: #ecfdf5;
+  --ok-border: #a7f3d0;
+
+  --warn: #f59e0b;
+  --warn-bg: #fffbeb;
+  --warn-border: #fde68a;
+
+  --err: #ef4444;
+  --err-bg: #fef2f2;
+  --err-border: #fecaca;
+
+  --info: #0284c7;
+  --info-bg: #f0f9ff;
+  --info-border: #bae6fd;
+
+  /* Typography */
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Radius & Shadows */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 4px 12px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 12px 28px -6px rgba(15, 23, 42, 0.12), 0 6px 12px -3px rgba(15, 23, 42, 0.06);
+  --shadow-xl: 0 24px 48px -12px rgba(15, 23, 42, 0.18), 0 10px 20px -5px rgba(15, 23, 42, 0.08);
+  --shadow-glow: 0 0 24px var(--lpu-orange-glow);
+
+  /* Glass backdrop */
+  --backdrop-blur: blur(14px);
+}
+
+/* Dark Theme Variables */
+[data-theme="dark"] {
+  --bg-page: #090d16;
+  --surface: #101626;
+  --surface-card: rgba(16, 22, 38, 0.78);
+  --surface-card-hover: rgba(22, 30, 52, 0.88);
+  --surface-secondary: #172033;
+  --surface-elevated: #1a233a;
+
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --text-subtle: #64748b;
+  --text-inverse: #090d16;
+
+  --border-light: rgba(255, 255, 255, 0.08);
+  --border-card: rgba(255, 255, 255, 0.1);
+  --border-focus: #f26522;
+
+  --ok: #34d399;
+  --ok-bg: rgba(16, 185, 129, 0.12);
+  --ok-border: rgba(16, 185, 129, 0.3);
+
+  --warn: #fbbf24;
+  --warn-bg: rgba(245, 158, 11, 0.12);
+  --warn-border: rgba(245, 158, 11, 0.3);
+
+  --err: #f87171;
+  --err-bg: rgba(239, 68, 68, 0.12);
+  --err-border: rgba(239, 68, 68, 0.3);
+
+  --info: #38bdf8;
+  --info-bg: rgba(2, 132, 199, 0.12);
+  --info-border: rgba(2, 132, 199, 0.3);
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 14px 32px rgba(0, 0, 0, 0.55);
+  --shadow-xl: 0 24px 50px rgba(0, 0, 0, 0.7);
+}
+
+/* Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 15px;
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.55;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Animated Background Layers */
+#bg-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: auto;
+  opacity: 0.85;
+}
+
+.ambient-container {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.45;
+  mix-blend-mode: normal;
+  will-change: transform;
+}
+
+.orb-1 {
+  top: -10%;
+  left: -5%;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, var(--lpu-orange-glow) 0%, rgba(242, 101, 34, 0) 70%);
+  animation: floatOrb 22s ease-in-out infinite alternate;
+}
+
+.orb-2 {
+  bottom: 5%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(30, 64, 175, 0.3) 0%, rgba(30, 64, 175, 0) 70%);
+  animation: floatOrb 28s ease-in-out infinite alternate-reverse;
+}
+
+.orb-3 {
+  top: 40%;
+  left: 35%;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.22) 0%, rgba(139, 92, 246, 0) 70%);
+  animation: pulseGlow 18s ease-in-out infinite alternate;
+}
+
+@keyframes floatOrb {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(60px, 40px) scale(1.1); }
+  100% { transform: translate(-40px, 70px) scale(0.95); }
+}
+
+@keyframes pulseGlow {
+  0% { transform: scale(0.9) translate(0, 0); opacity: 0.3; }
+  100% { transform: scale(1.2) translate(-30px, 30px); opacity: 0.55; }
+}
+
+.ambient-grid {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(100, 116, 139, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(100, 116, 139, 0.04) 1px, transparent 1px);
+}
+
+#app {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header & Brand */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--surface-card);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border-bottom: 1px solid var(--border-card);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s ease;
+}
+
+.header-top {
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: 1380px;
+  margin: 0 auto;
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.brand-emblem {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--lpu-orange) 0%, #c2410c 100%);
+  color: #fff;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  box-shadow: 0 4px 12px var(--lpu-orange-glow);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.brand-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-univ-title {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-univ-title .tag-lpu {
+  background: var(--lpu-orange-subtle);
+  color: var(--lpu-orange);
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(242, 101, 34, 0.25);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.brand-portal-sub {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.notification-pill {
+  position: relative;
+  background: var(--surface-secondary);
+  border: 1px solid var(--border-light);
+  color: var(--text-main);
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.notification-pill:hover {
+  background: var(--surface-elevated);
+  border-color: var(--lpu-orange);
+}
+
+.notif-badge {
+  background: var(--lpu-orange);
+  color: #fff;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 1px 7px;
+  min-width: 18px;
+  text-align: center;
+}
+
+.theme-btn {
+  background: var(--surface-secondary);
+  border: 1px solid var(--border-light);
+  color: var(--text-main);
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 17px;
+  transition: all 0.2s ease;
+}
+
+.theme-btn:hover {
+  background: var(--surface-elevated);
+  border-color: var(--border-focus);
+}
+
+.user-badge {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 6px 12px;
+  background: var(--surface-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-full);
+}
+
+.user-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--lpu-blue), #4338ca);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+.user-role-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--lpu-orange);
+  text-transform: capitalize;
+}
+
+/* Nav Tabs */
+.site-nav {
+  background: var(--surface-card);
+  border-bottom: 1px solid var(--border-card);
+  backdrop-filter: var(--backdrop-blur);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.site-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-container {
+  max-width: 1380px;
+  margin: 0 auto;
+  display: flex;
+  gap: 4px;
+  padding: 6px 24px;
+}
+
+.nav-tab {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.nav-tab:hover {
+  color: var(--text-main);
+  background: var(--surface-secondary);
+}
+
+.nav-tab.active {
+  color: #fff;
+  background: linear-gradient(135deg, var(--lpu-orange) 0%, var(--lpu-orange-hover) 100%);
+  box-shadow: 0 4px 12px var(--lpu-orange-glow);
+}
+
+.nav-tab .badge {
+  background: rgba(255, 255, 255, 0.2);
+  color: inherit;
+  font-size: 11px;
+  padding: 1px 6px;
+  border-radius: var(--radius-full);
+}
+
+/* Main Container */
+.main-wrapper {
+  max-width: 1380px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px;
+  flex: 1;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.section-title {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-subtitle {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* Cards & Grid */
+.card {
+  background: var(--surface-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: var(--backdrop-blur);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  position: relative;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: rgba(242, 101, 34, 0.25);
+}
+
+.grid-catalog {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 18px;
+}
+
+.eq-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.eq-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--lpu-orange), var(--lpu-blue));
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.eq-card:hover::before {
+  opacity: 1;
+}
+
+.eq-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.eq-icon-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: var(--surface-secondary);
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.eq-title {
+  font-size: 16.5px;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.35;
+  margin-bottom: 4px;
+}
+
+.eq-location {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.eq-specs {
+  margin: 12px 0 16px;
+  padding: 10px 12px;
+  background: var(--surface-secondary);
+  border-radius: var(--radius-md);
+  font-size: 12.5px;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.eq-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-light);
+  margin-top: auto;
+}
+
+/* Status Badges */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: capitalize;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.tag::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.tag.available { background: var(--ok-bg); color: var(--ok); border: 1px solid var(--ok-border); }
+.tag.approved { background: var(--ok-bg); color: var(--ok); border: 1px solid var(--ok-border); }
+.tag.completed { background: var(--info-bg); color: var(--info); border: 1px solid var(--info-border); }
+.tag.pending { background: var(--warn-bg); color: var(--warn); border: 1px solid var(--warn-border); }
+.tag.rejected, .tag.cancelled, .tag.maint { background: var(--err-bg); color: var(--err); border: 1px solid var(--err-border); }
+
+.category-pill {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 3px 8px;
+  background: var(--surface-secondary);
+  color: var(--text-muted);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--lpu-orange) 0%, var(--lpu-orange-hover) 100%);
+  color: #fff;
+  box-shadow: 0 3px 10px var(--lpu-orange-glow);
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px var(--lpu-orange-glow);
+}
+
+.btn-secondary {
+  background: var(--surface-secondary);
+  color: var(--text-main);
+  border-color: var(--border-light);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--surface-elevated);
+  border-color: var(--border-focus);
+}
+
+.btn-danger {
+  background: var(--err-bg);
+  color: var(--err);
+  border-color: var(--err-border);
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: var(--err);
+  color: #fff;
+}
+
+.btn-success {
+  background: var(--ok-bg);
+  color: var(--ok);
+  border-color: var(--ok-border);
+}
+
+.btn-success:hover:not(:disabled) {
+  background: var(--ok);
+  color: #fff;
+}
+
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 12.5px;
+  border-radius: var(--radius-sm);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Form Inputs */
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  padding: 10px 14px;
+  background: var(--surface-secondary);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  background: var(--surface-elevated);
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px var(--lpu-orange-subtle);
+}
+
+.form-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.form-row > * {
+  flex: 1;
+  min-width: 140px;
+}
+
+.filter-bar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 22px;
+  background: var(--surface-card);
+  padding: 14px 18px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-card);
+  backdrop-filter: var(--backdrop-blur);
+}
+
+.search-box {
+  flex: 2;
+  min-width: 240px;
+  position: relative;
+}
+
+.search-box input {
+  padding-left: 36px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-subtle);
+  pointer-events: none;
+}
+
+.category-filters {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.cat-pill-btn {
+  background: var(--surface-card);
+  border: 1px solid var(--border-card);
+  color: var(--text-muted);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cat-pill-btn:hover {
+  background: var(--surface-elevated);
+  color: var(--text-main);
+  border-color: var(--lpu-orange);
+}
+
+.cat-pill-btn.active {
+  background: var(--lpu-orange);
+  color: #fff;
+  border-color: var(--lpu-orange);
+  box-shadow: 0 2px 8px var(--lpu-orange-glow);
+}
+
+/* Daily Schedule Timeline */
+.timeline-bar {
+  display: flex;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  background: var(--border-light);
+  overflow: hidden;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.timeline-slot {
+  flex: 1;
+  height: 100%;
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
+  transition: opacity 0.2s ease;
+}
+
+.timeline-slot.free { background: var(--ok-bg); }
+.timeline-slot.booked { background: var(--warn); }
+.timeline-slot.maint { background: var(--err); }
+
+.slot-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: var(--surface-elevated);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+/* Tables */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-card);
+  background: var(--surface-card);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 13.5px;
+}
+
+th {
+  background: var(--surface-secondary);
+  color: var(--text-muted);
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-card);
+  white-space: nowrap;
+}
+
+td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-main);
+  vertical-align: middle;
+}
+
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: var(--surface-secondary); }
+
+/* Stats & Meters */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  background: var(--surface-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  backdrop-filter: var(--backdrop-blur);
+}
+
+.stat-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  background: var(--lpu-orange-subtle);
+  color: var(--lpu-orange);
+  flex-shrink: 0;
+}
+
+.stat-info { display: flex; flex-direction: column; }
+.stat-value { font-size: 28px; font-weight: 800; letter-spacing: -0.03em; color: var(--text-main); line-height: 1.1; }
+.stat-label { font-size: 12.5px; font-weight: 600; color: var(--text-muted); margin-top: 4px; }
+
+.usage-bar-track {
+  height: 10px;
+  background: var(--surface-secondary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-top: 6px;
+}
+
+.usage-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--lpu-orange) 0%, #fb923c 100%);
+  border-radius: var(--radius-full);
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Login Screen & Auth Overlay (LPU Branding) */
+.auth-overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(242, 101, 34, 0.15) 0%, rgba(11, 19, 41, 0.88) 100%);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+.auth-modal {
+  width: 100%;
+  max-width: 520px;
+  background: var(--surface-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-xl);
+  padding: 36px 32px;
+  box-shadow: var(--shadow-xl), var(--shadow-glow);
+  position: relative;
+  overflow: hidden;
+  animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.auth-modal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--lpu-orange) 0%, #ea580c 50%, var(--lpu-blue) 100%);
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.auth-lpu-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: var(--lpu-orange-subtle);
+  border: 1px solid rgba(242, 101, 34, 0.3);
+  border-radius: var(--radius-full);
+  margin-bottom: 14px;
+}
+
+.auth-lpu-badge .logo-crest { font-size: 16px; }
+.auth-lpu-badge span {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--lpu-orange);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.auth-title {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+
+.auth-subtitle {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.demo-account-pills { margin: 18px 0; }
+.demo-pill-title {
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.demo-pills-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.demo-pill-card {
+  padding: 10px 8px;
+  background: var(--surface-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.demo-pill-card:hover {
+  background: var(--surface-elevated);
+  border-color: var(--lpu-orange);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.demo-pill-role {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--lpu-orange);
+  text-transform: uppercase;
+}
+
+.demo-pill-name {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  margin: 18px 0;
+  color: var(--text-subtle);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.auth-divider::before, .auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-light);
+}
+
+.auth-divider span { padding: 0 10px; }
+
+.auth-footer-note {
+  margin-top: 18px;
+  font-size: 11.5px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* Modals */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 19, 41, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.25s ease;
+}
+
+.modal-content {
+  width: 100%;
+  max-width: 540px;
+  background: var(--surface-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-header {
+  padding: 18px 24px;
+  background: var(--surface-secondary);
+  border-bottom: 1px solid var(--border-card);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-title { font-size: 17px; font-weight: 700; color: var(--text-main); }
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: var(--text-muted);
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px;
+  border-radius: var(--radius-sm);
+}
+
+.modal-close:hover { color: var(--text-main); background: var(--surface-elevated); }
+.modal-body { padding: 24px; max-height: 75vh; overflow-y: auto; }
+.modal-footer {
+  padding: 16px 24px;
+  background: var(--surface-secondary);
+  border-top: 1px solid var(--border-card);
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Booking Pass Card */
+.booking-pass {
+  background: var(--surface-elevated);
+  border: 2px dashed var(--lpu-orange);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  position: relative;
+}
+
+.pass-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 14px;
+  margin-bottom: 16px;
+}
+
+.pass-qr-sim {
+  width: 90px;
+  height: 90px;
+  background: repeating-conic-gradient(#000 0% 25%, #fff 0% 50%) 50% / 15px 15px;
+  border-radius: var(--radius-sm);
+  border: 2px solid #000;
+  margin: 0 auto 16px;
+}
+
+/* Toast Alerts */
+#toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--lpu-navy);
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  font-size: 13.5px;
+  font-weight: 600;
+  display: none;
+  z-index: 2000;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  opacity: 0;
+  max-width: 90%;
+  text-align: center;
+}
+
+#toast.show {
+  display: block;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Footer */
+.site-footer {
+  margin-top: auto;
+  background: var(--surface-card);
+  border-top: 1px solid var(--border-card);
+  backdrop-filter: var(--backdrop-blur);
+  padding: 20px 24px;
+}
+
+.footer-inner {
+  max-width: 1380px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.footer-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: var(--surface-secondary);
+  border: 1px solid var(--border-light);
+  font-weight: 600;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ok);
+  box-shadow: 0 0 8px var(--ok);
+}
+
+.status-dot.offline {
+  background: var(--warn);
+  box-shadow: 0 0 8px var(--warn);
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+  .header-top { padding: 10px 14px; }
+  .main-wrapper { padding: 14px; }
+  .grid-catalog { grid-template-columns: 1fr; }
+  .demo-pills-row { grid-template-columns: 1fr; }
+  .nav-container { padding: 4px 14px; }
+  .auth-modal { padding: 24px 18px; }
+}
+  </style>
+</head>
+<body>
+  <!-- Ambient Animated Background Layer -->
+  <div class="ambient-container">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="ambient-orb orb-3"></div>
+  </div>
+  <div class="ambient-grid"></div>
+  
+  <!-- Interactive Particle Constellation Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Dynamic Application Root -->
+  <div id="app"></div>
+
+  <!-- Real-time Toast Alerts -->
+  <div id="toast"></div>
+
+  <script>
+/**
+ * ============================================================================
+ * LOVELY PROFESSIONAL UNIVERSITY (LPU) - DIGITAL LAB EQUIPMENT BOOKING PORTAL
+ * Interactive Frontend Engine, Animated Canvas Background & State Controller
+ * ============================================================================
+ */
+
+(function () {
+  'use strict';
+
+  const $ = (selector, parent = document) => parent.querySelector(selector);
+  const $$ = (selector, parent = document) => Array.from(parent.querySelectorAll(selector));
+
+  const today = () => {
+    const d = new Date();
+    return new Date(d - d.getTimezoneOffset() * 6e4).toISOString().slice(0, 10);
+  };
+
+  const esc = (s) => String(s || '').replace(/[&<>"']/g, (c) => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  }[c]));
+
+  const nid = (arr) => Math.max(0, ...arr.map((x) => x.id)) + 1;
+
+  let S = null;
+  let user = null;
+  let tab = 'cat';
+  let online = false;
+  let q = '';
+  let cf = '';
+  let sel = { eq: 1, date: today(), s: '10:00', f: '12:00' };
+  let currentTheme = localStorage.getItem('lpu_theme') || 'light';
+  let activePassBooking = null;
+
+  const ADMIN_PASS = 'admin123';
+
+  // Seed Data for Lovely Professional University
+  const seed = () => {
+    const d = today();
+    return {
+      eq: [
+        {
+          id: 1,
+          name: 'Digital Storage Oscilloscope 100MHz (4-Channel)',
+          lab: 'Electronics Lab 102 (Block 34)',
+          cat: 'Electronics',
+          school: 'School of Electronics & Electrical Engineering',
+          model: 'Tektronix TBS2104B',
+          icon: '⚡',
+          specs: '100 MHz Bandwidth, 4 analog channels, 2 GS/s sample rate, 5M point record length'
+        },
+        {
+          id: 2,
+          name: 'Field Emission Scanning Electron Microscope (FE-SEM)',
+          lab: 'Central Instrumentation Facility (Block 38)',
+          cat: 'Microscopy',
+          school: 'School of Chemical Engineering & Physical Sciences',
+          model: 'JEOL JSM-7610FPlus',
+          icon: '🔬',
+          specs: 'Resolution up to 0.8nm, In-lens Schottky emission gun, EDS elemental mapping'
+        },
+        {
+          id: 3,
+          name: 'High-Performance GPU AI Server (NVIDIA A100 80GB)',
+          lab: 'AI & Deep Learning Research Lab (Block 36)',
+          cat: 'Computing',
+          school: 'School of Computer Science & Engineering',
+          model: 'NVIDIA DGX Station A100',
+          icon: '🖥️',
+          specs: '4x NVIDIA A100 GPUs, 320GB Tensor Core memory, Dual AMD EPYC 7742 64-core CPUs'
+        },
+        {
+          id: 4,
+          name: 'Industrial SLA High-Precision 3D Printer',
+          lab: 'Innovation & Prototyping Hub (Block 28)',
+          cat: 'Fabrication',
+          school: 'School of Mechanical Engineering',
+          model: 'Formlabs Form 3+ SLA',
+          icon: '🖨️',
+          specs: '25-micron laser spot, 25-300 micron layer thickness, biocompatible resin capable'
+        },
+        {
+          id: 5,
+          name: 'UV-Vis Double Beam Spectrophotometer',
+          lab: 'Analytical Chemistry Lab 204 (Block 37)',
+          cat: 'Chemistry',
+          school: 'School of Chemical Engineering & Physical Sciences',
+          model: 'Shimadzu UV-2600i',
+          icon: '🧪',
+          specs: '190 nm to 1400 nm range, dual monochromator, ultra-low stray light'
+        },
+        {
+          id: 6,
+          name: 'Real-Time Thermal Cycler qPCR System',
+          lab: 'Genomics & Molecular Biology Lab (Block 35)',
+          cat: 'Biology',
+          school: 'School of Bioengineering & Biosciences',
+          model: 'Applied Biosystems QuantStudio 5',
+          icon: '🧬',
+          specs: '96-well 0.2 mL Peltier block, 6 decoupled excitation filters, multiplexing capability'
+        },
+        {
+          id: 7,
+          name: 'Industrial 6-Axis Articulated Robotic Arm',
+          lab: 'Robotics & Industry 4.0 Lab (Block 29)',
+          cat: 'Robotics',
+          school: 'School of Mechanical & Mechatronics',
+          model: 'KUKA KR 6 R900 sixx',
+          icon: '🤖',
+          specs: '6 kg payload, 901 mm reach, smartPAD teaching pendant, EtherCAT bus'
+        },
+        {
+          id: 8,
+          name: 'High-Speed Refrigerated Centrifuge (20,000 RPM)',
+          lab: 'Biotechnology & Cell Culture Lab (Block 35)',
+          cat: 'Biology',
+          school: 'School of Bioengineering & Biosciences',
+          model: 'Eppendorf 5810R',
+          icon: '🌀',
+          specs: '-9°C to +40°C temperature control, max RCF 20,913 x g, aerosol-tight rotor'
+        },
+        {
+          id: 9,
+          name: 'Vector Network Analyzer (VNA 20 GHz)',
+          lab: 'RF, Microwave & Antenna Lab (Block 34)',
+          cat: 'Electronics',
+          school: 'School of Electronics & Communication',
+          model: 'Keysight E5071C ENA',
+          icon: '📡',
+          specs: '300 kHz to 20 GHz frequency range, 130 dB dynamic range, S-parameter test set'
+        },
+        {
+          id: 10,
+          name: 'IoT & Edge Embedded Sensor Workbench',
+          lab: 'Smart Systems & IoT Lab (Block 36)',
+          cat: 'Computing',
+          school: 'School of Computer Science & Engineering',
+          model: 'LPU IoT Master Kit v3',
+          icon: '💡',
+          specs: 'ESP32-S3, Raspberry Pi 5 8GB, LoRaWAN Gateway, environmental & optical sensor array'
+        }
+      ],
+      bk: [
+        {
+          id: 1,
+          eq: 1,
+          user: 'Riya Sharma',
+          role: 'student',
+          dept: 'School of Electronics & Comm.',
+          date: d,
+          start: '10:00',
+          end: '12:00',
+          purpose: 'High-frequency signal waveform distortion analysis for final year capstone',
+          st: 'approved'
+        },
+        {
+          id: 2,
+          eq: 3,
+          user: 'Aman Verma',
+          role: 'student',
+          dept: 'School of Computer Science',
+          date: d,
+          start: '14:00',
+          end: '17:00',
+          purpose: 'Fine-tuning multimodal vision-language model for automated defect detection',
+          st: 'pending'
+        },
+        {
+          id: 3,
+          eq: 2,
+          user: 'Dr. Harpreet Singh',
+          role: 'faculty',
+          dept: 'School of AI & Robotics',
+          date: d,
+          start: '13:00',
+          end: '15:00',
+          purpose: 'Surface nanostructure topology scanning for DST research grant',
+          st: 'approved'
+        }
+      ],
+      mt: [
+        {
+          id: 1,
+          eq: 5,
+          date: d,
+          reason: 'Deuterium and Tungsten lamp calibration and photometric verification'
+        }
+      ],
+      nt: [
+        {
+          id: 1,
+          to: 'admin',
+          msg: 'Welcome to Lovely Professional University Central Equipment Booking Admin Console.',
+          time: new Date().toLocaleString()
+        },
+        {
+          id: 2,
+          to: 'Riya Sharma',
+          msg: 'Your booking for Digital Storage Oscilloscope on ' + d + ' (10:00–12:00) has been APPROVED.',
+          time: new Date().toLocaleString()
+        }
+      ]
+    };
+  };
+
+  async function load() {
+    try {
+      const r = await fetch('/api/state');
+      if (!r.ok) throw new Error('Server returned non-200');
+      S = await r.json();
+      online = true;
+    } catch (e) {
+      try {
+        const stored = localStorage.getItem('lpulabs_v2');
+        if (stored) S = JSON.parse(stored);
+      } catch (err) {}
+      online = false;
+    }
+
+    if (!S || !S.eq || !Array.isArray(S.eq)) {
+      S = seed();
+      await save();
+    }
+  }
+
+  async function save() {
+    if (online) {
+      try {
+        const r = await fetch('/api/state', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(S)
+        });
+        if (!r.ok) {
+          const errData = await r.json().catch(() => ({}));
+          toast('Sync error: ' + (errData.error || 'Unable to update server'));
+          await load();
+          render();
+          return false;
+        }
+      } catch (e) {
+        online = false;
+      }
+    }
+    try {
+      localStorage.setItem('lpulabs_v2', JSON.stringify(S));
+    } catch (e) {}
+    return true;
+  }
+
+  function toast(msg) {
+    const t = $('#toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(t.timer);
+    t.timer = setTimeout(() => {
+      t.classList.remove('show');
+    }, 3500);
+  }
+
+  const E = (id) => S.eq.find((e) => e.id == id) || { name: 'Unknown Equipment', lab: 'Central Lab', icon: '🔬' };
+
+  const st = (b) => {
+    if (b.st === 'approved' && b.date < today()) return 'completed';
+    return b.st;
+  };
+
+  const note = (to, msg) => {
+    S.nt.push({
+      id: nid(S.nt),
+      to,
+      msg,
+      time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ', ' + today()
+    });
+  };
+
+  function clash(b) {
+    const m = S.mt.find((x) => x.eq == b.eq && x.date == b.date);
+    if (m) return 'Resource is blocked for maintenance on this date: ' + m.reason;
+    if (b.date < today()) return 'Cannot book a past date.';
+    if (b.start >= b.end) return 'End time must be later than start time.';
+
+    const conflict = S.bk.find(
+      (x) =>
+        x.id != b.id &&
+        x.eq == b.eq &&
+        x.date == b.date &&
+        ['pending', 'approved'].includes(x.st) &&
+        b.start < x.end &&
+        x.start < b.end
+    );
+
+    return conflict
+      ? `Slot conflicts with an existing reservation (${conflict.start}–${conflict.end} by ${conflict.user})`
+      : '';
+  }
+
+  const isMaint = (id, date = today()) => S.mt.some((m) => m.eq == id && m.date == date);
+
+  const tag = (s) => {
+    const labels = {
+      available: 'Available',
+      approved: 'Approved',
+      completed: 'Completed',
+      pending: 'Pending Approval',
+      rejected: 'Rejected',
+      cancelled: 'Cancelled',
+      maint: 'Maintenance'
+    };
+    return `<span class="tag ${s}">${labels[s] || s}</span>`;
+  };
+
+  function login(name, role, dept, pwd = '') {
+    const n = name ? name.trim() : ($('#login-name') ? $('#login-name').value.trim() : '');
+    const r = role || ($('#login-role') ? $('#login-role').value : 'student');
+    const d = dept || ($('#login-dept') ? $('#login-dept').value : 'Engineering');
+    const p = pwd || ($('#login-pwd') ? $('#login-pwd').value : '');
+
+    if (!n) return toast('Please enter your full name');
+
+    if (r === 'admin') {
+      if (p !== ADMIN_PASS) {
+        return toast('Invalid Admin password. (Demo: admin123)');
+      }
+    }
+
+    user = {
+      name: n,
+      role: r,
+      admin: r === 'admin',
+      dept: d,
+      avatar: n.split(' ').map((x) => x[0]).join('').slice(0, 2).toUpperCase()
+    };
+
+    tab = user.admin ? 'adm' : 'cat';
+    toast(`Welcome, ${user.name}!`);
+    render();
+  }
+
+  function quickDemoLogin(type) {
+    if (type === 'student') {
+      login('Riya Sharma', 'student', 'School of Electronics & Comm.');
+    } else if (type === 'faculty') {
+      login('Dr. Harpreet Singh', 'faculty', 'School of AI & Robotics');
+    } else if (type === 'admin') {
+      login('Dr. Ananya Sen', 'admin', 'Central Instrumentation Facility', 'admin123');
+    }
+  }
+
+  function logout() {
+    user = null;
+    tab = 'cat';
+    activePassBooking = null;
+    toast('Logged out successfully.');
+    render();
+  }
+
+  function toggleTheme() {
+    currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+    localStorage.setItem('lpu_theme', currentTheme);
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    render();
+  }
+
+  async function submitBk() {
+    const eqId = +$('#be').value;
+    const date = $('#bd').value;
+    const start = $('#bs').value;
+    const end = $('#bf').value;
+    const purpose = esc($('#bp').value.trim());
+
+    if (!date || !start || !end) return toast('Please complete all required date & time fields.');
+    if (!purpose) return toast('Please provide a brief purpose or experiment description.');
+
+    const b = {
+      id: nid(S.bk),
+      eq: eqId,
+      user: user.name,
+      role: user.role,
+      dept: user.dept,
+      date,
+      start,
+      end,
+      purpose,
+      st: user.admin ? 'approved' : 'pending'
+    };
+
+    const conflictErr = clash(b);
+    if (conflictErr) return toast('⚠️ ' + conflictErr);
+
+    S.bk.push(b);
+    note('admin', `New booking request from ${user.name} (${user.dept}) for ${E(b.eq).name} on ${b.date} (${b.start}–${b.end}).`);
+    note(user.name, `Your booking request for ${E(b.eq).name} on ${b.date} was submitted and is pending verification.`);
+
+    if (await save()) {
+      toast(user.admin ? 'Booking created & auto-approved.' : 'Booking request submitted successfully!');
+      tab = 'mine';
+      render();
+    }
+  }
+
+  async function setSt(id, newStatus) {
+    const b = S.bk.find((x) => x.id === id);
+    if (!b) return;
+
+    if (newStatus === 'approved') {
+      const conflictErr = clash(b);
+      if (conflictErr) return toast('⚠️ Cannot approve: ' + conflictErr);
+    }
+
+    b.st = newStatus;
+    note(b.user, `Your booking for ${E(b.eq).name} on ${b.date} (${b.start}–${b.end}) was marked as ${newStatus.toUpperCase()}.`);
+
+    if (user.admin && newStatus === 'cancelled') {
+      note('admin', `Booking #${b.id} for ${E(b.eq).name} was cancelled by administrator.`);
+    }
+
+    await save();
+    toast(`Booking status updated to ${newStatus}.`);
+    render();
+  }
+
+  async function addMt() {
+    const eqId = +$('#me').value;
+    const date = $('#md').value;
+    const reason = esc($('#mr').value.trim()) || 'Preventive calibration & safety testing';
+
+    if (!date) return toast('Please select a date for maintenance.');
+
+    const m = {
+      id: nid(S.mt),
+      eq: eqId,
+      date,
+      reason
+    };
+
+    S.mt.push(m);
+
+    const affected = S.bk.filter((b) => b.eq === m.eq && b.date === m.date && ['pending', 'approved'].includes(b.st));
+    affected.forEach((b) => {
+      b.st = 'cancelled';
+      note(b.user, `ALERT: Your booking for ${E(b.eq).name} on ${b.date} was cancelled due to scheduled laboratory maintenance: ${m.reason}.`);
+    });
+
+    await save();
+    toast(`Equipment marked for maintenance. ${affected.length} conflicting booking(s) automatically cancelled.`);
+    render();
+  }
+
+  async function removeMt(id) {
+    S.mt = S.mt.filter((x) => x.id !== id);
+    await save();
+    toast('Maintenance block removed.');
+    render();
+  }
+
+  async function addNewEquipment() {
+    const name = esc($('#new-eq-name').value.trim());
+    const cat = $('#new-eq-cat').value;
+    const lab = esc($('#new-eq-lab').value.trim());
+    const model = esc($('#new-eq-model').value.trim()) || 'Standard Model';
+    const specs = esc($('#new-eq-specs').value.trim()) || 'Calibrated scientific research instrument';
+
+    if (!name || !lab) return toast('Equipment Name and Lab Location are required.');
+
+    const iconMap = {
+      Electronics: '⚡',
+      Microscopy: '🔬',
+      Computing: '🖥️',
+      Fabrication: '🖨️',
+      Chemistry: '🧪',
+      Biology: '🧬',
+      Robotics: '🤖'
+    };
+
+    const newEq = {
+      id: nid(S.eq),
+      name,
+      cat,
+      lab,
+      model,
+      specs,
+      school: 'School of Advanced Engineering',
+      icon: iconMap[cat] || '🔬'
+    };
+
+    S.eq.push(newEq);
+    note('admin', `New laboratory equipment registered: ${newEq.name} in ${newEq.lab}.`);
+    await save();
+    toast(`"${newEq.name}" added to catalog.`);
+    closeModal();
+    render();
+  }
+
+  function showBookingPass(bookingId) {
+    const b = S.bk.find((x) => x.id === bookingId);
+    if (!b) return;
+    activePassBooking = b;
+    render();
+  }
+
+  function closeModal() {
+    activePassBooking = null;
+    const modalEl = $('#app-modal');
+    if (modalEl) modalEl.remove();
+    render();
+  }
+
+  function exportHistoryCSV() {
+    const completed = S.bk.filter((b) => user.admin || b.user === user.name);
+    if (!completed.length) return toast('No history records to export.');
+
+    let csv = 'BookingID,Equipment,LabLocation,Date,StartTime,EndTime,User,Role,Department,Purpose,Status\n';
+    completed.forEach((b) => {
+      const eq = E(b.eq);
+      csv += `"${b.id}","${eq.name}","${eq.lab}","${b.date}","${b.start}","${b.end}","${b.user}","${b.role || 'student'}","${b.dept || ''}","${(b.purpose || '').replace(/"/g, '""')}","${st(b)}"\n`;
+    });
+
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = `LPU_Lab_Booking_History_${today()}.csv`;
+    link.click();
+    toast('Booking ledger exported to CSV.');
+  }
+
+  const views = {
+    cat() {
+      const cats = [...new Set(S.eq.map((e) => e.cat))];
+      const filtered = S.eq.filter(
+        (e) =>
+          (!cf || e.cat === cf) &&
+          (e.name + e.lab + e.model + (e.school || '')).toLowerCase().includes(q.toLowerCase())
+      );
+
+      return `
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">🔬 Central Equipment Directory</h2>
+            <p class="section-subtitle">Explore high-end instrumentation across Lovely Professional University campus laboratories.</p>
+          </div>
+          ${user.admin ? `<button class="btn btn-primary" onclick="window.LPU.openAddEqModal()">+ Add New Equipment</button>` : ''}
+        </div>
+
+        <div class="filter-bar">
+          <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input id="sq" class="form-input" placeholder="Search equipment, department, model, or lab block…" value="${esc(q)}"
+              oninput="window.LPU.handleSearch(this.value)">
+          </div>
+          <select class="form-select" style="max-width: 220px;" onchange="window.LPU.handleCatChange(this.value)">
+            <option value="">All Categories (${S.eq.length})</option>
+            ${cats.map((c) => `<option value="${c}" ${c === cf ? 'selected' : ''}>${c} (${S.eq.filter((x) => x.cat === c).length})</option>`).join('')}
+          </select>
+        </div>
+
+        <div class="category-filters">
+          <button class="cat-pill-btn ${!cf ? 'active' : ''}" onclick="window.LPU.handleCatChange('')">All Instruments</button>
+          ${cats
+            .map(
+              (c) => `<button class="cat-pill-btn ${c === cf ? 'active' : ''}" onclick="window.LPU.handleCatChange('${c}')">${c}</button>`
+            )
+            .join('')}
+        </div>
+
+        <div class="grid-catalog">
+          ${
+            filtered.length
+              ? filtered
+                  .map((e) => {
+                    const todayBookings = S.bk.filter((b) => b.eq == e.id && b.date == today() && b.st == 'approved');
+                    const underMaint = isMaint(e.id);
+
+                    return `
+              <div class="card eq-card">
+                <div>
+                  <div class="eq-header">
+                    <div class="eq-icon-badge">${e.icon || '🔬'}</div>
+                    <span class="category-pill">${e.cat}</span>
+                  </div>
+                  <h3 class="eq-title">${e.name}</h3>
+                  <div class="eq-location">📍 ${e.lab}</div>
+                  <div class="eq-specs">${e.specs || 'High-precision research instrument.'}</div>
+                </div>
+
+                <div>
+                  <div style="margin-bottom: 14px; font-size: 13px;">
+                    ${
+                      underMaint
+                        ? `${tag('maint')} <span style="font-size:12px; color:var(--err); margin-left:6px;">Scheduled Maintenance</span>`
+                        : todayBookings.length
+                        ? `${tag('pending')} <span style="font-size:12px; color:var(--text-muted); margin-left:6px;">In Use (${todayBookings.map((x) => x.start + '–' + x.end).join(', ')})</span>`
+                        : `${tag('available')} <span style="font-size:12px; color:var(--ok); margin-left:6px;">Available Today</span>`
+                    }
+                  </div>
+                  <div class="eq-footer">
+                    <span style="font-size:11.5px; color:var(--text-muted); font-family:var(--font-mono);">${e.model || ''}</span>
+                    <button class="btn btn-primary btn-sm" ${underMaint ? 'disabled' : ''} onclick="window.LPU.selectAndBook(${e.id})">
+                      ${underMaint ? 'Under Maintenance' : 'Book Instrument →'}
+                    </button>
+                  </div>
+                </div>
+              </div>`;
+                  })
+                  .join('')
+              : `<div class="card" style="grid-column: 1 / -1; text-align: center; padding: 48px 20px;">
+                  <div style="font-size: 42px; margin-bottom: 10px;">🔍</div>
+                  <h3>No equipment matched "${esc(q)}"</h3>
+                  <p style="color: var(--text-muted); margin-top: 6px;">Try adjusting your keywords or clearing the category filter.</p>
+                  <button class="btn btn-secondary btn-sm" style="margin-top: 14px;" onclick="window.LPU.clearSearch()">Clear Filters</button>
+                </div>`
+          }
+        </div>
+      `;
+    },
+
+    book() {
+      const selectedEqId = sel.eq || S.eq[0].id;
+      const selectedDate = sel.date || today();
+      const currentEq = E(selectedEqId);
+
+      const dayBookings = S.bk
+        .filter((b) => b.eq == selectedEqId && b.date == selectedDate && ['pending', 'approved'].includes(b.st))
+        .sort((a, b) => (a.start > b.start ? 1 : -1));
+
+      const maintBlock = S.mt.find((x) => x.eq == selectedEqId && x.date == selectedDate);
+      const hours = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
+
+      return `
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">📅 Reserve Equipment Slot</h2>
+            <p class="section-subtitle">Real-time conflict prevention and laboratory schedule verification.</p>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+          <div class="card">
+            <h3 style="font-size: 18px; margin-bottom: 16px;">New Booking Application</h3>
+
+            <div class="form-group">
+              <label class="form-label">Selected Instrument</label>
+              <select id="be" class="form-select" onchange="window.LPU.changeBookingEq(this.value)">
+                ${S.eq.map((x) => `<option value="${x.id}" ${x.id == selectedEqId ? 'selected' : ''}>${x.name} — ${x.lab}</option>`).join('')}
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Reservation Date</label>
+              <input id="bd" type="date" class="form-input" min="${today()}" value="${selectedDate}"
+                onchange="window.LPU.changeBookingDate(this.value)">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Start Time</label>
+                <input id="bs" type="time" class="form-input" value="${sel.s || '09:00'}" onchange="window.LPU.updateSlotTimes()">
+              </div>
+              <div class="form-group">
+                <label class="form-label">End Time</label>
+                <input id="bf" type="time" class="form-input" value="${sel.f || '11:00'}" onchange="window.LPU.updateSlotTimes()">
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+              <span style="font-size: 12px; color: var(--text-muted); align-self: center;">Quick duration:</span>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="window.LPU.setDuration(1)">1 hr</button>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="window.LPU.setDuration(2)">2 hrs</button>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="window.LPU.setDuration(3)">3 hrs</button>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Purpose & Experiment Description</label>
+              <textarea id="bp" class="form-textarea" rows="3" placeholder="Outline specific research experiment, sample details, or course curriculum practical requirements…"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Applicant</label>
+              <div style="padding: 10px 14px; background: var(--surface-secondary); border-radius: var(--radius-md); font-size: 13.5px;">
+                <strong>${user.name}</strong> • <span style="color: var(--lpu-orange); font-weight: 600;">${user.role.toUpperCase()}</span> (${user.dept})
+              </div>
+            </div>
+
+            <button class="btn btn-primary" style="width: 100%; margin-top: 10px;" onclick="window.LPU.submitBk()">
+              Submit Booking Application →
+            </button>
+          </div>
+
+          <div class="card">
+            <h3 style="font-size: 18px; margin-bottom: 8px;">Schedule for ${selectedDate}</h3>
+            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">
+              <strong>${currentEq.name}</strong> • ${currentEq.lab}
+            </p>
+
+            ${
+              maintBlock
+                ? `<div style="padding: 14px; background: var(--err-bg); border: 1px solid var(--err-border); border-radius: var(--radius-md); color: var(--err); margin-bottom: 16px;">
+                    <strong>⚠️ Blocked for Maintenance:</strong> ${maintBlock.reason}
+                  </div>`
+                : ''
+            }
+
+            <div style="margin-bottom: 6px; font-size: 12px; font-weight: 700; color: var(--text-muted);">
+              WORKING DAY AVAILABILITY (08:00 – 20:00)
+            </div>
+            <div class="timeline-bar">
+              ${hours
+                .map((h) => {
+                  const hStr = (h < 10 ? '0' : '') + h + ':00';
+                  const nextHStr = (h + 1 < 10 ? '0' : '') + (h + 1) + ':00';
+                  const isBlocked = maintBlock;
+                  const isBooked = dayBookings.some((b) => b.start < nextHStr && b.end > hStr);
+
+                  let slotClass = 'free';
+                  if (isBlocked) slotClass = 'maint';
+                  else if (isBooked) slotClass = 'booked';
+
+                  return `<div class="timeline-slot ${slotClass}" title="${hStr} - ${slotClass.toUpperCase()}"></div>`;
+                })
+                .join('')}
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--text-subtle); font-family: var(--font-mono); margin-bottom: 18px;">
+              <span>08:00</span>
+              <span>11:00</span>
+              <span>14:00</span>
+              <span>17:00</span>
+              <span>20:00</span>
+            </div>
+
+            <h4 style="font-size: 14px; font-weight: 700; margin-bottom: 10px;">Reserved Sessions on Selected Date:</h4>
+            ${
+              dayBookings.length
+                ? dayBookings
+                    .map(
+                      (b) => `
+                <div class="slot-item">
+                  <div>
+                    <strong>${b.start} – ${b.end}</strong>
+                    <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">
+                      👤 ${b.user} (${b.role || 'researcher'}) • <em>${b.purpose || 'Lab Practical'}</em>
+                    </div>
+                  </div>
+                  <div>${tag(b.st)}</div>
+                </div>`
+                    )
+                    .join('')
+                : `<div style="padding: 16px; background: var(--ok-bg); border: 1px solid var(--ok-border); border-radius: var(--radius-md); color: var(--ok); font-size: 13.5px;">
+                    ✨ Completely open for booking on this day.
+                  </div>`
+            }
+
+            <div style="margin-top: 24px; padding: 14px; background: var(--surface-secondary); border-radius: var(--radius-md); font-size: 12px; color: var(--text-muted); line-height: 1.5;">
+              <strong>📋 Lab Policy Notice:</strong> All bookings require safety briefing compliance. Cancellations must be made at least 2 hours prior to scheduled start time.
+            </div>
+          </div>
+        </div>
+      `;
+    },
+
+    mine() {
+      const bookingsList = S.bk.filter((b) => user.admin || b.user === user.name).slice().reverse();
+
+      return `
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">📋 ${user.admin ? 'All Campus Reservations' : 'My Lab Bookings'}</h2>
+            <p class="section-subtitle">Track application approvals, print digital lab passes, and manage active slots.</p>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Booking ID</th>
+                <th>Instrument</th>
+                <th>Date & Time</th>
+                ${user.admin ? '<th>Applicant</th><th>Department</th>' : ''}
+                <th>Purpose</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${
+                bookingsList.length
+                  ? bookingsList
+                      .map((b) => {
+                        const eq = E(b.eq);
+                        const statusVal = st(b);
+                        const isUpcoming = ['pending', 'approved'].includes(b.st) && b.date >= today();
+
+                        return `
+                  <tr>
+                    <td style="font-family: var(--font-mono); font-weight: 600;">#LPU-${b.id}</td>
+                    <td>
+                      <strong>${eq.name}</strong>
+                      <div style="font-size: 11.5px; color: var(--text-muted);">📍 ${eq.lab}</div>
+                    </td>
+                    <td>
+                      <div>📅 ${b.date}</div>
+                      <div style="font-size: 12px; color: var(--text-muted); font-family: var(--font-mono);">⏰ ${b.start}–${b.end}</div>
+                    </td>
+                    ${
+                      user.admin
+                        ? `<td><strong>${b.user}</strong> <span class="tag ${b.role || 'student'}" style="font-size:10px;">${b.role || 'student'}</span></td>
+                           <td>${b.dept || 'Engineering'}</td>`
+                        : ''
+                    }
+                    <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="${esc(b.purpose)}">
+                      ${esc(b.purpose || 'Standard Lab Practical')}
+                    </td>
+                    <td>${tag(statusVal)}</td>
+                    <td>
+                      <div style="display: flex; gap: 6px;">
+                        ${
+                          statusVal === 'approved'
+                            ? `<button class="btn btn-secondary btn-sm" onclick="window.LPU.showBookingPass(${b.id})">Pass 🎫</button>`
+                            : ''
+                        }
+                        ${
+                          isUpcoming
+                            ? `<button class="btn btn-danger btn-sm" onclick="window.LPU.setSt(${b.id}, 'cancelled')">Cancel</button>`
+                            : ''
+                        }
+                      </div>
+                    </td>
+                  </tr>`;
+                      })
+                      .join('')
+                  : `<tr><td colspan="${user.admin ? 7 : 5}" style="text-align: center; padding: 36px; color: var(--text-muted);">No bookings recorded yet.</td></tr>`
+              }
+            </tbody>
+          </table>
+        </div>
+      `;
+    },
+
+    hist() {
+      const historyList = S.bk
+        .filter((b) => (user.admin || b.user === user.name) && st(b) !== 'pending')
+        .slice()
+        .reverse();
+
+      return `
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">📊 Equipment Usage Ledger</h2>
+            <p class="section-subtitle">Official log of concluded and archived laboratory equipment operations.</p>
+          </div>
+          <button class="btn btn-secondary" onclick="window.LPU.exportHistoryCSV()">Export CSV 📥</button>
+        </div>
+
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Instrument</th>
+                <th>Time Window</th>
+                <th>User / Supervisor</th>
+                <th>Department</th>
+                <th>Purpose</th>
+                <th>Resolution</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${
+                historyList.length
+                  ? historyList
+                      .map((b) => {
+                        const eq = E(b.eq);
+                        return `
+                  <tr>
+                    <td>📅 ${b.date}</td>
+                    <td><strong>${eq.name}</strong><br><span style="font-size:11.5px; color:var(--text-muted);">${eq.lab}</span></td>
+                    <td style="font-family: var(--font-mono);">${b.start}–${b.end}</td>
+                    <td><strong>${b.user}</strong> <span style="font-size:11px; color:var(--text-muted);">(${b.role || 'student'})</span></td>
+                    <td>${b.dept || 'Engineering'}</td>
+                    <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="${esc(b.purpose)}">
+                      ${esc(b.purpose || '-')}
+                    </td>
+                    <td>${tag(st(b))}</td>
+                  </tr>`;
+                      })
+                      .join('')
+                  : `<tr><td colspan="7" style="text-align: center; padding: 36px; color: var(--text-muted);">No archived usage records found.</td></tr>`
+              }
+            </tbody>
+          </table>
+        </div>
+      `;
+    },
+
+    not() {
+      const myNotifs = S.nt.filter((n) => n.to === (user.admin ? 'admin' : user.name)).slice().reverse();
+
+      return `
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">🔔 Institutional Notifications</h2>
+            <p class="section-subtitle">Real-time alerts regarding equipment reservation approvals, verifications, and schedules.</p>
+          </div>
+          ${myNotifs.length ? `<button class="btn btn-secondary btn-sm" onclick="window.LPU.clearNotifs()">Clear Alerts</button>` : ''}
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          ${
+            myNotifs.length
+              ? myNotifs
+                  .map(
+                    (n) => `
+              <div class="card" style="padding: 16px 20px; border-left: 4px solid var(--lpu-orange);">
+                <div style="font-size: 14.5px; color: var(--text-main); font-weight: 500;">${n.msg}</div>
+                <div style="font-size: 12px; color: var(--text-muted); margin-top: 6px; font-family: var(--font-mono);">
+                  🕒 ${n.time}
+                </div>
+              </div>`
+                  )
+                  .join('')
+              : `<div class="card" style="text-align: center; padding: 48px; color: var(--text-muted);">
+                  <div style="font-size: 36px; margin-bottom: 8px;">📭</div>
+                  <h3>No unread notifications</h3>
+                  <p>All laboratory updates and approvals will appear here.</p>
+                </div>`
+          }
+        </div>
+      `;
+    },
+
+    adm() {
+      const pendingBookings = S.bk.filter((b) => b.st === 'pending');
+      const approvedToday = S.bk.filter((b) => b.st === 'approved' && b.date === today());
+      const usageCounts = S.eq.map((e) => [
+        e.name,
+        S.bk.filter((b) => b.eq == e.id && ['approved', 'completed'].includes(st(b))).length
+      ]);
+      const maxUsage = Math.max(1, ...usageCounts.map((u) => u[1]));
+
+      return `
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">⚡ Administrator Command Center</h2>
+            <p class="section-subtitle">LPU Central Instrumentation Facilities • Lab Supervision & Resource Approval</p>
+          </div>
+          <button class="btn btn-primary" onclick="window.LPU.openAddEqModal()">+ Register New Instrument</button>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">🔬</div>
+            <div class="stat-info">
+              <span class="stat-value">${S.eq.length}</span>
+              <span class="stat-label">Total Instruments</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background: var(--warn-bg); color: var(--warn);">⏳</div>
+            <div class="stat-info">
+              <span class="stat-value">${pendingBookings.length}</span>
+              <span class="stat-label">Pending Approval</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background: var(--ok-bg); color: var(--ok);">✅</div>
+            <div class="stat-info">
+              <span class="stat-value">${approvedToday.length}</span>
+              <span class="stat-label">Active Sessions Today</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background: var(--err-bg); color: var(--err);">🛠️</div>
+            <div class="stat-info">
+              <span class="stat-value">${S.mt.length}</span>
+              <span class="stat-label">Maintenance Blocks</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 24px;">
+          <h3 style="font-size: 17px; margin-bottom: 14px;">Pending Student & Faculty Applications</h3>
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>Applicant</th>
+                  <th>Department</th>
+                  <th>Instrument</th>
+                  <th>Date & Time</th>
+                  <th>Research Intent</th>
+                  <th>Decision</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${
+                  pendingBookings.length
+                    ? pendingBookings
+                        .map(
+                          (b) => `
+                    <tr>
+                      <td>
+                        <strong>${b.user}</strong>
+                        <div style="font-size: 11px; color: var(--text-muted);">${b.role || 'student'}</div>
+                      </td>
+                      <td>${b.dept || 'Engineering'}</td>
+                      <td><strong>${E(b.eq).name}</strong></td>
+                      <td>
+                        <div>📅 ${b.date}</div>
+                        <div style="font-family: var(--font-mono); font-size: 12px; color: var(--text-muted);">${b.start}–${b.end}</div>
+                      </td>
+                      <td style="max-width: 200px; font-size: 12.5px;">${esc(b.purpose || 'Standard Practicum')}</td>
+                      <td>
+                        <div style="display: flex; gap: 6px;">
+                          <button class="btn btn-success btn-sm" onclick="window.LPU.setSt(${b.id}, 'approved')">Approve ✓</button>
+                          <button class="btn btn-danger btn-sm" onclick="window.LPU.setSt(${b.id}, 'rejected')">Reject ✕</button>
+                        </div>
+                      </td>
+                    </tr>`
+                        )
+                        .join('')
+                    : `<tr><td colspan="6" style="text-align: center; padding: 24px; color: var(--text-muted);">🎉 All requests reviewed. No pending approvals in queue.</td></tr>`
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size: 17px; margin-bottom: 14px;">Instrument Utilization Metrics (Approved Sessions)</h3>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            ${usageCounts
+              .map(
+                (u) => `
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; margin-bottom: 4px;">
+                  <span>${u[0]}</span>
+                  <span style="font-family: var(--font-mono); color: var(--lpu-orange);">${u[1]} session(s)</span>
+                </div>
+                <div class="usage-bar-track">
+                  <div class="usage-bar-fill" style="width: ${(u[1] / maxUsage) * 100}%;"></div>
+                </div>
+              </div>`
+              )
+              .join('')}
+          </div>
+        </div>
+      `;
+    },
+
+    mnt() {
+      return `
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">🛠️ Equipment Maintenance & Calibration</h2>
+            <p class="section-subtitle">Take instruments offline for routine inspection, calibration, and hardware repairs.</p>
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 24px;">
+          <h3 style="font-size: 17px; margin-bottom: 16px;">Schedule Preventive Maintenance Block</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Instrument</label>
+              <select id="me" class="form-select">
+                ${S.eq.map((e) => `<option value="${e.id}">${e.name} (${e.lab})</option>`).join('')}
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Maintenance Date</label>
+              <input id="md" type="date" class="form-input" min="${today()}" value="${today()}">
+            </div>
+            <div class="form-group" style="flex: 2;">
+              <label class="form-label">Maintenance Description / Reason</label>
+              <input id="mr" class="form-input" placeholder="e.g. Lens cleaning, laser alignment, sensor recalibration…">
+            </div>
+          </div>
+          <button class="btn btn-primary" onclick="window.LPU.addMt()">
+            Apply Maintenance Block & Notify Users
+          </button>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size: 17px; margin-bottom: 14px;">Active & Scheduled Maintenance Records</h3>
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>Instrument</th>
+                  <th>Lab Location</th>
+                  <th>Date</th>
+                  <th>Calibration Reason</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${
+                  S.mt.length
+                    ? S.mt
+                        .map((m) => {
+                          const eq = E(m.eq);
+                          return `
+                    <tr>
+                      <td><strong>${eq.name}</strong></td>
+                      <td>📍 ${eq.lab}</td>
+                      <td>📅 ${m.date}</td>
+                      <td style="color: var(--err); font-weight: 500;">${m.reason}</td>
+                      <td>
+                        <button class="btn btn-secondary btn-sm" onclick="window.LPU.removeMt(${m.id})">Release Block</button>
+                      </td>
+                    </tr>`;
+                        })
+                        .join('')
+                    : `<tr><td colspan="5" style="text-align: center; padding: 24px; color: var(--text-muted);">No instruments currently under maintenance.</td></tr>`
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      `;
+    }
+  };
+
+  function renderModal() {
+    if (!activePassBooking) return '';
+
+    const b = activePassBooking;
+    const eq = E(b.eq);
+
+    return `
+      <div class="modal-overlay" onclick="if(event.target === this) window.LPU.closeModal()">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="modal-title">🎫 Official Laboratory Access Pass</div>
+            <button class="modal-close" onclick="window.LPU.closeModal()">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div class="booking-pass">
+              <div class="pass-header">
+                <div>
+                  <div style="font-size: 12px; font-weight: 800; color: var(--lpu-orange); text-transform: uppercase;">
+                    Lovely Professional University
+                  </div>
+                  <div style="font-size: 11px; color: var(--text-muted);">Central Digital Lab Booking System</div>
+                </div>
+                <div style="text-align: right;">
+                  <div style="font-size: 11px; color: var(--text-muted);">Pass ID</div>
+                  <div style="font-family: var(--font-mono); font-weight: 700;">#LPU-${b.id}</div>
+                </div>
+              </div>
+
+              <div class="pass-qr-sim" title="Scan at LPU Security Gate"></div>
+
+              <div style="text-align: center; margin-bottom: 16px;">
+                <div style="font-size: 17px; font-weight: 800; color: var(--text-main);">${eq.name}</div>
+                <div style="font-size: 13px; color: var(--text-muted); margin-top: 2px;">📍 ${eq.lab}</div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 12.5px; padding: 12px; background: var(--surface-secondary); border-radius: var(--radius-md); margin-bottom: 14px;">
+                <div>
+                  <span style="color: var(--text-muted); display: block;">Applicant:</span>
+                  <strong>${b.user}</strong> (${b.role || 'student'})
+                </div>
+                <div>
+                  <span style="color: var(--text-muted); display: block;">Department:</span>
+                  <strong>${b.dept || 'Engineering'}</strong>
+                </div>
+                <div>
+                  <span style="color: var(--text-muted); display: block;">Scheduled Date:</span>
+                  <strong>${b.date}</strong>
+                </div>
+                <div>
+                  <span style="color: var(--text-muted); display: block;">Authorized Time:</span>
+                  <strong style="font-family: var(--font-mono);">${b.start} – ${b.end}</strong>
+                </div>
+              </div>
+
+              <div style="font-size: 12px; color: var(--text-muted); text-align: center;">
+                Authorized by Central Lab Administration. Present this pass along with your LPU University Smart ID Card.
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" onclick="window.print()">Print Pass 🖨️</button>
+            <button class="btn btn-primary" onclick="window.LPU.closeModal()">Close</button>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function render() {
+    const app = $('#app');
+    if (!S || !app) return;
+
+    document.documentElement.setAttribute('data-theme', currentTheme);
+
+    if (!user) {
+      app.innerHTML = `
+        <div class="auth-overlay">
+          <div class="auth-modal">
+            <div class="auth-header">
+              <div class="auth-lpu-badge">
+                <span class="logo-crest">🔬</span>
+                <span>Lovely Professional University</span>
+              </div>
+              <h1 class="auth-title">Digital Lab Equipment Booking</h1>
+              <p class="auth-subtitle">Transforming Education, Transforming the Future • Central Research Portal</p>
+            </div>
+
+            <div class="demo-account-pills">
+              <div class="demo-pill-title">Quick Demo Login:</div>
+              <div class="demo-pills-row">
+                <div class="demo-pill-card" onclick="window.LPU.quickDemoLogin('student')">
+                  <div class="demo-pill-role">Student</div>
+                  <div class="demo-pill-name">Riya Sharma</div>
+                </div>
+                <div class="demo-pill-card" onclick="window.LPU.quickDemoLogin('faculty')">
+                  <div class="demo-pill-role">Faculty</div>
+                  <div class="demo-pill-name">Dr. Harpreet S.</div>
+                </div>
+                <div class="demo-pill-card" onclick="window.LPU.quickDemoLogin('admin')">
+                  <div class="demo-pill-role">Lab Admin</div>
+                  <div class="demo-pill-name">Dr. Ananya Sen</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="auth-divider">
+              <span>Or Institutional Sign In</span>
+            </div>
+
+            <form onsubmit="event.preventDefault(); window.LPU.login();">
+              <div class="form-group">
+                <label class="form-label">Full Name / Registration ID</label>
+                <input id="login-name" class="form-input" placeholder="e.g. Riya Sharma or 12108934" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">School / Department</label>
+                <select id="login-dept" class="form-select">
+                  <option value="School of Computer Science & Engineering">School of Computer Science & Engineering</option>
+                  <option value="School of Electronics & Electrical Engineering" selected>School of Electronics & Electrical Engineering</option>
+                  <option value="School of Bioengineering & Biosciences">School of Bioengineering & Biosciences</option>
+                  <option value="School of Mechanical Engineering">School of Mechanical Engineering</option>
+                  <option value="School of Chemical Engineering & Physical Sciences">School of Chemical Engineering & Physical Sciences</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Role</label>
+                <select id="login-role" class="form-select" onchange="$('#admin-pwd-field').style.display = this.value === 'admin' ? 'block' : 'none';">
+                  <option value="student">Student / Research Scholar</option>
+                  <option value="faculty">Faculty / Lab Supervisor</option>
+                  <option value="admin">Central Lab Administrator</option>
+                </select>
+              </div>
+
+              <div id="admin-pwd-field" class="form-group" style="display: none;">
+                <label class="form-label">Admin Security Key (Demo: admin123)</label>
+                <input id="login-pwd" type="password" class="form-input" placeholder="Enter admin password">
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 15px; margin-top: 6px;">
+                Enter LPU Labs Portal →
+              </button>
+            </form>
+
+            <div class="auth-footer-note">
+              Lovely Professional University • NAAC A++ Accredited • NIRF Top Ranked<br>
+              Jalandhar - Delhi G.T. Road, Phagwara, Punjab (India) - 144411
+            </div>
+          </div>
+        </div>
+      `;
+      return;
+    }
+
+    const myNotifs = S.nt.filter((n) => n.to === (user.admin ? 'admin' : user.name));
+
+    const navTabs = [
+      ['cat', '🔬 Equipment', ''],
+      ['book', '📅 Book Slot', ''],
+      ['mine', user.admin ? '📋 All Bookings' : '📋 My Bookings', S.bk.filter((x) => user.admin || x.user === user.name).length],
+      ['hist', '📊 Usage History', ''],
+      ['not', '🔔 Notifications', myNotifs.length]
+    ];
+
+    if (user.admin) {
+      navTabs.push(['adm', '⚡ Admin Dashboard', S.bk.filter((x) => x.st === 'pending').length]);
+      navTabs.push(['mnt', '🛠️ Maintenance', S.mt.length]);
+    }
+
+    app.innerHTML = `
+      <header class="site-header">
+        <div class="header-top">
+          <div class="brand-wrapper">
+            <div class="brand-emblem">🔬</div>
+            <div class="brand-titles">
+              <div class="brand-univ-title">
+                Lovely Professional University
+                <span class="tag-lpu">LPU Labs</span>
+              </div>
+              <div class="brand-portal-sub">Digital Lab Equipment Booking & Asset Management</div>
+            </div>
+          </div>
+
+          <div class="header-actions">
+            <button class="theme-btn" title="Toggle Theme" onclick="window.LPU.toggleTheme()">
+              ${currentTheme === 'dark' ? '☀️' : '🌙'}
+            </button>
+
+            <div class="notification-pill" onclick="window.LPU.switchTab('not')">
+              <span>🔔</span>
+              <span class="notif-badge">${myNotifs.length}</span>
+            </div>
+
+            <div class="user-badge">
+              <div class="user-avatar">${user.avatar || 'U'}</div>
+              <div class="user-meta">
+                <span class="user-name">${user.name}</span>
+                <span class="user-role-label">${user.admin ? 'Lab Administrator' : user.role}</span>
+              </div>
+            </div>
+
+            <button class="btn btn-secondary btn-sm" onclick="window.LPU.logout()">Sign Out</button>
+          </div>
+        </div>
+
+        <nav class="site-nav">
+          <div class="nav-container">
+            ${navTabs
+              .map(
+                (t) => `
+              <button class="nav-tab ${tab === t[0] ? 'active' : ''}" onclick="window.LPU.switchTab('${t[0]}')">
+                <span>${t[1]}</span>
+                ${t[2] ? `<span class="badge">${t[2]}</span>` : ''}
+              </button>`
+              )
+              .join('')}
+          </div>
+        </nav>
+      </header>
+
+      <main class="main-wrapper">
+        ${views[tab] ? views[tab]() : views.cat()}
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-inner">
+          <div>
+            <strong>Lovely Professional University (LPU)</strong> • Central Digital Lab Equipment Booking
+          </div>
+          <div class="footer-status-pill">
+            <div class="status-dot ${online ? '' : 'offline'}"></div>
+            <span>${online ? 'Connected to LPU Labs Server (Live Sync)' : 'Offline Mode (Local Storage Synced)'}</span>
+          </div>
+        </div>
+      </footer>
+
+      ${renderModal()}
+    `;
+  }
+
+  function openAddEqModal() {
+    const modalHtml = `
+      <div id="app-modal" class="modal-overlay" onclick="if(event.target === this) window.LPU.closeModal()">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="modal-title">Register New Laboratory Equipment</div>
+            <button class="modal-close" onclick="window.LPU.closeModal()">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label class="form-label">Instrument Name</label>
+              <input id="new-eq-name" class="form-input" placeholder="e.g. Automated High-Throughput DNA Sequencer" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Category</label>
+              <select id="new-eq-cat" class="form-select">
+                <option value="Electronics">Electronics</option>
+                <option value="Microscopy">Microscopy</option>
+                <option value="Computing">Computing & AI</option>
+                <option value="Fabrication">Fabrication & 3D Prototyping</option>
+                <option value="Chemistry">Chemistry & Materials</option>
+                <option value="Biology">Biology & Genomics</option>
+                <option value="Robotics">Robotics & Automation</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Laboratory Room / Campus Block</label>
+              <input id="new-eq-lab" class="form-input" placeholder="e.g. Advanced Robotics Lab 301 (Block 29)" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Model / Manufacturer</label>
+              <input id="new-eq-model" class="form-input" placeholder="e.g. Illumina NovaSeq 6000">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Key Technical Specifications</label>
+              <textarea id="new-eq-specs" class="form-textarea" rows="2" placeholder="Key specs, power rating, precision parameters…"></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" onclick="window.LPU.closeModal()">Cancel</button>
+            <button class="btn btn-primary" onclick="window.LPU.addNewEquipment()">Save Instrument</button>
+          </div>
+        </div>
+      </div>
+    `;
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = modalHtml;
+    document.body.appendChild(tempDiv.firstElementChild);
+  }
+
+  function initAnimatedBackground() {
+    const canvas = $('#bg-canvas');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    });
+
+    const particles = [];
+    const count = Math.min(75, Math.floor((width * height) / 16000));
+    const mouse = { x: -1000, y: -1000, radius: 140 };
+
+    window.addEventListener('mousemove', (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
+    window.addEventListener('mouseout', () => {
+      mouse.x = -1000;
+      mouse.y = -1000;
+    });
+
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.75,
+        vy: (Math.random() - 0.5) * 0.75,
+        radius: Math.random() * 2.2 + 1,
+        baseColor: Math.random() > 0.4 ? 'rgba(242, 101, 34,' : 'rgba(30, 64, 175,'
+      });
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      const maxDistance = 125;
+
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0 || p.x > width) p.vx *= -1;
+        if (p.y < 0 || p.y > height) p.vy *= -1;
+
+        const dxMouse = mouse.x - p.x;
+        const dyMouse = mouse.y - p.y;
+        const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+
+        if (distMouse < mouse.radius) {
+          const force = (mouse.radius - distMouse) / mouse.radius;
+          p.x -= (dxMouse / distMouse) * force * 1.5;
+          p.y -= (dyMouse / distMouse) * force * 1.5;
+        }
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = p.baseColor + (isDark ? ' 0.8)' : ' 0.6)');
+        ctx.fill();
+
+        for (let j = i + 1; j < particles.length; j++) {
+          const p2 = particles[j];
+          const dx = p.x - p2.x;
+          const dy = p.y - p2.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < maxDistance) {
+            const alpha = (1 - dist / maxDistance) * (isDark ? 0.35 : 0.2);
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = isDark ? `rgba(242, 101, 34, ${alpha})` : `rgba(15, 23, 42, ${alpha * 0.75})`;
+            ctx.lineWidth = 0.85;
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  }
+
+  window.LPU = {
+    login,
+    quickDemoLogin,
+    logout,
+    toggleTheme,
+    switchTab(t) {
+      tab = t;
+      render();
+    },
+    handleSearch(val) {
+      q = val;
+      render();
+      const input = $('#sq');
+      if (input) {
+        input.focus();
+        input.setSelectionRange(q.length, q.length);
+      }
+    },
+    clearSearch() {
+      q = '';
+      cf = '';
+      render();
+    },
+    handleCatChange(val) {
+      cf = val;
+      render();
+    },
+    selectAndBook(eqId) {
+      sel.eq = eqId;
+      sel.date = today();
+      tab = 'book';
+      render();
+    },
+    changeBookingEq(val) {
+      sel.eq = +val;
+      render();
+    },
+    changeBookingDate(val) {
+      sel.date = val;
+      render();
+    },
+    updateSlotTimes() {
+      sel.s = $('#bs').value;
+      sel.f = $('#bf').value;
+    },
+    setDuration(hours) {
+      const start = $('#bs').value || '09:00';
+      const [h, m] = start.split(':').map(Number);
+      const endH = Math.min(20, h + hours);
+      const end = (endH < 10 ? '0' : '') + endH + ':' + (m < 10 ? '0' : '') + m;
+      $('#bf').value = end;
+      sel.f = end;
+      render();
+    },
+    submitBk,
+    setSt,
+    addMt,
+    removeMt,
+    openAddEqModal,
+    addNewEquipment,
+    showBookingPass,
+    closeModal,
+    exportHistoryCSV,
+    async clearNotifs() {
+      S.nt = S.nt.filter((n) => n.to !== (user.admin ? 'admin' : user.name));
+      await save();
+      toast('Notifications cleared.');
+      render();
+    }
+  };
+
+  window.addEventListener('DOMContentLoaded', async () => {
+    initAnimatedBackground();
+    await load();
+    render();
+  });
+})();
+  </script>
+</body>
+</html>
